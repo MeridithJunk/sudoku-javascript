@@ -1,10 +1,15 @@
 function checker(sudoku) {
-    let sudokuSet = new Set();
-    for(let num = 0; num <= 8; num++)
-    {
-        sudokuSet.add(sudoku[0][num]);
+    let result = true;
+    for (let row = 0; row <= 8; row++) {
+        let sudokuSet = new Set();
+        for (let col = 0; col <= 8; col++) {
+            sudokuSet.add(sudoku[row][col]);
+        }
+        if (sudokuSet.size !== 9) {
+            result = false
+        }
     }
-    return sudokuSet.size === 9;
+    return result;
 }
 
 module.exports = checker;
