@@ -1,11 +1,13 @@
 function checker(sudoku) {
     let result = true;
     for (let row = 0; row <= 8; row++) {
-        let sudokuSet = new Set();
+        let sudokuSetRows = new Set();
+        let sudokuSetCol = new Set();
         for (let col = 0; col <= 8; col++) {
-            sudokuSet.add(sudoku[row][col]);
+            sudokuSetRows.add(sudoku[row][col]);
+            sudokuSetCol.add(sudoku[col][row]);
         }
-        if (sudokuSet.size !== 9) {
+        if (sudokuSetRows.size !== 9 || sudokuSetCol.size !== 9) {
             result = false
         }
     }
